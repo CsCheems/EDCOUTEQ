@@ -29,6 +29,11 @@ namespace EDCOUTEQ.Controllers
             return RedirectToAction("Login");
         }
 
+        public ActionResult RegistroUsuario()
+        {
+            return RedirectToAction("Admin", "Cursos");
+        }
+
         //Metodo de inicio de sesion
         [HttpPost]
         public ActionResult Login(LoginViewModel credenciales)
