@@ -136,6 +136,7 @@ namespace EDCOUTEQ.Controllers
             using (SqlConnection cn = new SqlConnection(cadenaConexion))
             {
                 SqlCommand cmd = new SqlCommand("SP_registraUsuario", cn);
+                cmd.Parameters.AddWithValue("Rol", usuarioInfo.rol);
                 cmd.Parameters.AddWithValue("Nombre", usuarioInfo.nombre);
                 cmd.Parameters.AddWithValue("Apellido", usuarioInfo.apellido);
                 cmd.Parameters.AddWithValue("Email", usuarioInfo.Email);
