@@ -21,6 +21,11 @@ namespace EDCOUTEQ.Controllers
             return View();
         }
 
+        public ActionResult Edita()
+        {
+            return View();
+        }
+
         //Metodo para registrar un curso
         [HttpPost]
         public ActionResult RegistrarCurso(Cursos cursosInfo)
@@ -55,6 +60,42 @@ namespace EDCOUTEQ.Controllers
             ViewData["Mensaje"] = mensaje;
 
             if (registrado)
+            {
+                return RedirectToAction("Admin", "Cursos");
+            }
+            else
+            {
+                return View();
+            }
+        }
+
+        public ActionResult EditaCurso(Cursos cursoInfo)
+        {
+            using (SqlConnection cn = new SqlConnection(cadenaConexion))
+            {
+                SqlCommand cmd = new SqlCommand("SP_editaCurso", cn);
+                cmd.Parameters.AddWithValue("Id", cursoInfo.);
+                cmd.Parameters.AddWithValue("Nombre", cursosInfo.nombre);
+                cmd.Parameters.AddWithValue("Modalidad", cursosInfo.modalidad);
+                cmd.Parameters.AddWithValue("Lugar", cursosInfo.lugar);
+                cmd.Parameters.AddWithValue("Horas", cursosInfo.horas);
+                cmd.Parameters.AddWithValue("Costo", cursosInfo.costo);
+                cmd.Parameters.AddWithValue("CostoPref", cursosInfo.costoPref);
+                cmd.Parameters.AddWithValue("UrlTemario", cursosInfo.temario);
+                cmd.Parameters.AddWithValue("Requisitos", cursosInfo.requisitos);
+                cmd.Parameters.AddWithValue("CriterioEval", cursosInfo.criterioEval);
+                cmd.Parameters.AddWithValue("ImgUrl", cursosInfo.imgUrl);
+                cmd.Parameters.Add("Registrado", SqlDbType.Bit).Direction = ParameterDirection.Output;
+                cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 100).Direction = ParameterDirection.Output;
+                cmd.CommandType = CommandType.StoredProcedure;
+
+                cn.Open();
+                cmd.ExecuteNonQuery();
+
+                editado = Convert.ToBoolean(cmd.Parameters["Registrado"].Value);
+            }
+
+            if (editado)
             {
                 return RedirectToAction("Admin", "Cursos");
             }
