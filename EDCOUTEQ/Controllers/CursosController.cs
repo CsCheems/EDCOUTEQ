@@ -21,7 +21,7 @@ namespace EDCOUTEQ.Controllers
             return View();
         }
 
-        public ActionResult Edita()
+        public ActionResult EditaCurso()
         {
             return View();
         }
@@ -71,6 +71,7 @@ namespace EDCOUTEQ.Controllers
 
         public ActionResult EditaCurso(Cursos cursosInfo)
         {
+            bool editado;
             using (SqlConnection cn = new SqlConnection(cadenaConexion))
             {
                 SqlCommand cmd = new SqlCommand("SP_editaCurso", cn);
