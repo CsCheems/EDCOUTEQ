@@ -69,12 +69,12 @@ namespace EDCOUTEQ.Controllers
             }
         }
 
-        public ActionResult EditaCurso(Cursos cursoInfo)
+        public ActionResult EditaCurso(Cursos cursosInfo)
         {
             using (SqlConnection cn = new SqlConnection(cadenaConexion))
             {
                 SqlCommand cmd = new SqlCommand("SP_editaCurso", cn);
-                cmd.Parameters.AddWithValue("Id", cursoInfo.);
+                cmd.Parameters.AddWithValue("Id", cursosInfo.idCurso);
                 cmd.Parameters.AddWithValue("Nombre", cursosInfo.nombre);
                 cmd.Parameters.AddWithValue("Modalidad", cursosInfo.modalidad);
                 cmd.Parameters.AddWithValue("Lugar", cursosInfo.lugar);
@@ -85,8 +85,7 @@ namespace EDCOUTEQ.Controllers
                 cmd.Parameters.AddWithValue("Requisitos", cursosInfo.requisitos);
                 cmd.Parameters.AddWithValue("CriterioEval", cursosInfo.criterioEval);
                 cmd.Parameters.AddWithValue("ImgUrl", cursosInfo.imgUrl);
-                cmd.Parameters.Add("Registrado", SqlDbType.Bit).Direction = ParameterDirection.Output;
-                cmd.Parameters.Add("Mensaje", SqlDbType.VarChar, 100).Direction = ParameterDirection.Output;
+                cmd.Parameters.Add("Editado", SqlDbType.Bit).Direction = ParameterDirection.Output;
                 cmd.CommandType = CommandType.StoredProcedure;
 
                 cn.Open();
