@@ -12,7 +12,5 @@ namespace EDCOUTEQ.Models
 
         public string rolUser { get; set; }
 
-
-
     }
 }

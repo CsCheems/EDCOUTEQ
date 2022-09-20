@@ -10,6 +10,8 @@ using EDCOUTEQ.Models;
 using System.Data.SqlClient;
 using System.Data;
 using System.Web.Services.Description;
+using Fluent.Infrastructure.FluentModel;
+using LoginViewModel = EDCOUTEQ.Models.LoginViewModel;
 
 namespace EDCOUTEQ.Controllers
 {
@@ -31,9 +33,17 @@ namespace EDCOUTEQ.Controllers
 
         public ActionResult RegistroUsuario()
         {
-            
-            
-            return View();
+            using(SqlConnection cn = new SqlConnection(cadenaConexion))
+            { 
+                var roles = new List<RolModel>();
+                var context = new ApplicationDbContext();
+
+                /*SqlCommand cmd = new SqlCommand("SELECT * FROM rol", cn);
+                cmd.CommandType= CommandType.Text;
+                cmd.Connection.Open();*/
+                
+                return View();
+            }
         }
 
         //Metodo de inicio de sesion

@@ -1,7 +1,9 @@
-﻿using System;
+﻿using Microsoft.Ajax.Utilities;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.Web.UI.WebControls;
 
 namespace EDCOUTEQ.Models
 {
@@ -21,4 +23,6 @@ namespace EDCOUTEQ.Models
 
         public string confirmPassword { get; set; }
     }
+
+    
 }
