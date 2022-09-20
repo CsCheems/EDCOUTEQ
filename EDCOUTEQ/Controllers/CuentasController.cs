@@ -16,8 +16,8 @@ namespace EDCOUTEQ.Controllers
     
     public class CuentasController : Controller
     {
-        static string cadenaConexion = "Data Source=DESKTOP-RDBRQG8;Initial Catalog=edcouteq;Integrated Security=true;";
-        //static string cadenaConexion = "Data Source=DESKTOP-ADDCRJO;Initial Catalog=edcouteq;Integrated Security=true; user id=sa; pwd=123";
+        //static string cadenaConexion = "Data Source=DESKTOP-RDBRQG8;Initial Catalog=edcouteq;Integrated Security=true;";
+        static string cadenaConexion = "Data Source=DESKTOP-ADDCRJO;Initial Catalog=edcouteq;Integrated Security=true; user id=sa; pwd=123";
         
         public ActionResult Login()
         {
@@ -31,7 +31,9 @@ namespace EDCOUTEQ.Controllers
 
         public ActionResult RegistroUsuario()
         {
-            return RedirectToAction("Admin", "Cursos");
+            
+            
+            return View();
         }
 
         //Metodo de inicio de sesion
@@ -50,13 +52,6 @@ namespace EDCOUTEQ.Controllers
                 cn.Open();
 
                 credenciales.idUsuario = Convert.ToInt32(cmd.ExecuteScalar().ToString());
-
-               /* cmd = new SqlCommand("SP_obtenUsuario", cn);
-                cmd.CommandType = CommandType.StoredProcedure;
-
-                cn.Open();
-
-                credenciales = Convert.ToString(cmd.);*/
                 
             }
 
