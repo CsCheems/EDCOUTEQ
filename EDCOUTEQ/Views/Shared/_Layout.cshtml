@@ -1,5 +1,4 @@
-﻿@model EDCOUTEQ.Models.LoginViewModel
-
+﻿
 @{     
     bool isLogged = true;
     EDCOUTEQ.Models.LoginViewModel credenciales = (EDCOUTEQ.Models.LoginViewModel)Session["usuario"];
@@ -38,7 +37,7 @@
                 if (isLogged)
                 {
                     <li id="menu"><a href="@Url.Action("Logout", "Cuentas")">Salir</a></li>
-                    <li id="menu"><a href="">Bienvenido @credenciales.Nombre</a></li>
+                    <li id="menu"><a href="">Bienvenido @credenciales.Email</a></li>
                     <li id="menu"><a href="@Url.Action("Admin","Cursos")">Administrador</a></li>
                 }
                 else
