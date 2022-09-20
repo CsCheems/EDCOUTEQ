@@ -184,6 +184,7 @@
     </Compile>
     <Compile Include="Models\Cursos.cs" />
     <Compile Include="Models\LoginViewModel.cs" />
+    <Compile Include="Models\RolModel.cs" />
     <Compile Include="Models\Usuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -227,6 +228,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Cuentas\Login.cshtml" />
     <Content Include="Views\Cursos\Admin.cshtml" />
+    <Content Include="Views\Cuentas\RegistroUsuario.cshtml" />
+    <Content Include="Views\Cursos\RegistrarCurso.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
